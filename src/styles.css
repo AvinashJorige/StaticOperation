@@ -2,17 +2,54 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/ng2-slim-loading-bar/style.css";
 
-.navbar{
-    margin-bottom: 20px;
+.navbar {
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
-  /* Make the image fully responsive */
-  .carousel-inner img {
-    width: 100%;
-    height: 100%;
-  }
+/* Make the image fully responsive */
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
 
-  body {
-      font-family: "BebasNeueRegular";
-      font-size: 16px;
-  }
+body {
+  font-family: "BebasNeueRegular";
+  font-size: 16px;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav-tabs .nav-item .nav-link {
+  font-size: 15px;
+}
+
+p {
+  font-size: 15px;
+}
+
+.table thead th,
+.table tbody td {
+  font-size: 15px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #ffa700;
+  opacity: 0.6;
+  color: #fff;
+}
+
+thead tr {
+  background: #ff2700;
+  color: #fff;
+}
+
+.table-outer-bordered{
+border: 1px solid #ddd;
+}

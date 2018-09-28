@@ -1,4 +1,16 @@
-<table class="table table-bordered table-condensed">
+<div class="clearfix">
+  <span class="float-left">
+    <h2>
+      Employee Records
+    </h2>
+  </span>
+  <span class="float-right">
+    <pre>Total Records : {{getEmpList.length}}</pre></span>
+</div>
+<hr>
+
+
+<table class="shadow table table-borderless table-outer-bordered table-striped ">
   <thead>
     <tr>
       <th>Id</th>
@@ -9,8 +21,16 @@
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let list of getBkList">
-    <td></td>
+<tr *ngFor="let list of getEmpList | paginate:  { itemsPerPage:10, currentPage: page}">
+      <td>{{ list.id }}</td>
+      <td>{{ list.employee_name }}</td>
+      <td>{{ list.employee_salary }}</td>
+      <td>{{ list.employee_age }}</td>
+      <td>
+        <i class="fa fa-edit"></i>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
