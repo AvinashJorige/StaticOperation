@@ -1,8 +1,6 @@
+import { Employee } from './../../shared/Employee/employee';
 import { ApiService } from './../../api.service';
-import { EmployeeList } from './../../shared/Employee/employee-list';
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Employee } from './../../shared/Employee/Employee';
 
 @Component({
         selector: 'app-employees-details',
@@ -16,17 +14,31 @@ export class EmployeesDetailsComponent implements OnInit {
         public page = 1;
 
         // Private variable declarations
-        private getEmpList: Array<Object> = []
+        private getEmpList: Employee[];
+
 
         // Public constructor
-        constructor(private employee: EmployeeList, private service: ApiService) { }
+        constructor(private service: ApiService) { }
         ngOnInit() {
-                console.log("asdasdsa");
-                var items = this.employee.getEmpDetails(this.service);
-                console.log("list : ", this.service.getEmpList());
+                this.service.getEmpList()
+                .subscribe(data => {
+                        this.getEmpList = data;
+                });
+               
         }
 
-        private getData(service): Observable<Employee[]>{
-                return this.employee.getEmpDetails(this.service);
-        }
+
+        deleteUser(emp: Employee): void {
+                this.service.deleteEmpList(emp.id)
+                        .subscribe(data => {
+                                this.getEmpList = this.getEmpList.filter(u => u !== emp);
+                        });
+        };
+
+        editUser(user: Employee): void {
+                localStorage.removeItem("editUserId");
+                localStorage.setItem("editUserId", user.id.toString());
+                //this.router.navigate(['edit-user']);
+        };
+
 }

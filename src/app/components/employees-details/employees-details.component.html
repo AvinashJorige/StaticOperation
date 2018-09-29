@@ -18,10 +18,11 @@
       <th>Salary</th>
       <th>Age</th>
       <th>Profile Image</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-<tr *ngFor="let list of getEmpList | paginate:  { itemsPerPage:10, currentPage: page}">
+    <tr *ngFor="let list of getEmpList">
       <td>{{ list.id }}</td>
       <td>{{ list.employee_name }}</td>
       <td>{{ list.employee_salary }}</td>
@@ -29,8 +30,8 @@
       <td>
         <i class="fa fa-edit"></i>
       </td>
+<td><button class="btn btn-danger" (click)="deleteUser(list)"> Delete</button>
+<button class="btn btn-danger" (click)="editUser(list)" style="margin-left: 20px;"> Edit</button></td>
     </tr>
   </tbody>
 </table>
-
-<pagination-controls (pageChange)="p = $event"></pagination-controls>

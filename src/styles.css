@@ -40,13 +40,12 @@ p {
   font-size: 15px;
 }
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #ffa700;
-  opacity: 0.6;
+  background-color: #787;
   color: #fff;
 }
 
 thead tr {
-  background: #ff2700;
+  background: #183033;
   color: #fff;
 }
 

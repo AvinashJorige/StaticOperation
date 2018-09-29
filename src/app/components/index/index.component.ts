@@ -16,9 +16,9 @@ export class IndexComponent implements OnInit {
     this.getBookCategory();
   }
 
-  public getBookCategory(){
-    this.apiService.getBookCategoryList().subscribe((data: Array<object>) => {      
-     this.getBkList = data['data'];
+  public getBookCategory() {
+    this.apiService.getBookCategoryList().subscribe((data: Array<object>) => {  
+     this.getBkList = data;
     });
   }
 }
