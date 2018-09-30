@@ -10,14 +10,14 @@
 <hr>
 
 
-<table class="shadow table table-borderless table-outer-bordered table-striped ">
+<table class="shadow table table-outer-bordered table-active table-striped table-sm">
   <thead>
     <tr>
       <th>Id</th>
       <th>Name</th>
       <th>Salary</th>
       <th>Age</th>
-      <th>Profile Image</th>
+      <th class="float-right">Profile Image</th>
       <th></th>
     </tr>
   </thead>
@@ -30,8 +30,9 @@
       <td>
         <i class="fa fa-edit"></i>
       </td>
-<td><button class="btn btn-danger" (click)="deleteUser(list)"> Delete</button>
-<button class="btn btn-danger" (click)="editUser(list)" style="margin-left: 20px;"> Edit</button></td>
+<td class="float-right">
+<button class="btn btn-danger btn-sm" (click)="deleteUser(list)"> Delete</button>
+<button class="btn btn-warning btn-sm" (click)="editUser(list)" style="margin-left: 20px;"> Edit</button></td>
     </tr>
   </tbody>
 </table>

@@ -14,7 +14,7 @@ export class EmployeesDetailsComponent implements OnInit {
         public page = 1;
 
         // Private variable declarations
-        private getEmpList: Employee[];
+        private getEmpList: Employee[] = [];
 
 
         // Public constructor
@@ -27,7 +27,7 @@ export class EmployeesDetailsComponent implements OnInit {
                
         }
 
-
+        // Delete the record from the api
         deleteUser(emp: Employee): void {
                 this.service.deleteEmpList(emp.id)
                         .subscribe(data => {
