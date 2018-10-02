@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeesDetailsComponent implements OnInit {
 
         // public variable declarations
-        public page = 1;
+        public page: Number = 1;
 
         // Private variable declarations
         private getEmpList: Employee[] = [];
@@ -24,7 +24,6 @@ export class EmployeesDetailsComponent implements OnInit {
                 .subscribe(data => {
                         this.getEmpList = data;
                 });
-               
         }
 
         // Delete the record from the api
@@ -33,12 +32,12 @@ export class EmployeesDetailsComponent implements OnInit {
                         .subscribe(data => {
                                 this.getEmpList = this.getEmpList.filter(u => u !== emp);
                         });
-        };
+        }
 
         editUser(user: Employee): void {
-                localStorage.removeItem("editUserId");
-                localStorage.setItem("editUserId", user.id.toString());
-                //this.router.navigate(['edit-user']);
-        };
+                localStorage.removeItem('editUserId');
+                localStorage.setItem('editUserId', user.id.toString());
+                // this.router.navigate(['edit-user']);
+        }
 
 }
