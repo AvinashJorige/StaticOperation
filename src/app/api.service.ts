@@ -9,27 +9,25 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 
   API_URL = 'https://fakerestapi.azurewebsites.net';
-
-  constructor(private httpClient: HttpClient) {}
-
-  getBookCategoryList(){
-    return this.httpClient.get(`${this.API_URL}/api/Books`);
-  }
-
-
-
   // Employee service function
   // ---------------------------------------------------------------------------------
   API_EMP_URL = 'http://dummy.restapiexample.com/api/v1';
 
+  constructor(private httpClient: HttpClient) {}
+
+  getBookCategoryList() {
+    return this.httpClient.get(`${this.API_URL}/api/Books`);
+  }
+
   // Get all employee data
-  getEmpList(){
+  getEmpList() {
     return this.httpClient.get<Employee[]>(this.API_EMP_URL+ '/employees');
   }
 
   // 	Get a single employee data
   getIdEmpList(id: string) {
-    return this.httpClient.get<Employee>(this.API_EMP_URL+ '/employee/' + id );
+    console.log(this.API_EMP_URL + '/employee/' + id);
+    return this.httpClient.get<Employee>(this.API_EMP_URL + '/employee/' + id );
   }
 
   // Create new record in database
@@ -37,12 +35,12 @@ export class ApiService {
     return this.httpClient.post(this.API_EMP_URL + '/create', employee);
   }
 
-  //Update an employee record
+  // Update an employee record
   updateEmpList(employee: Employee) {
     return this.httpClient.put(this.API_EMP_URL + '/update', employee);
   }
 
-  //Delete an employee record
+  // Delete an employee record
   deleteEmpList(id: string) {
     return this.httpClient.delete(this.API_EMP_URL + '/delete/' + id );
   }

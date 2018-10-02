@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from './../../api.service';
+import { Employee } from './../../shared/Employee/employee';
 
 @Component({
   selector: 'app-edit',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
-  constructor() { }
+  private id: string;
+  private userList: Employee;
+
+  constructor(private service: ApiService, private _router: Router, private _Activatedroute: ActivatedRoute) {
+    this._Activatedroute.queryParams.subscribe(params => {
+      // console.log(params);
+      this.id = params['id'];
+       // Print the parameter to the console.
+  });
+   }
 
   ngOnInit() {
+    this.service.getIdEmpList(this.id)
+        .subscribe(data => {
+                this.userList = data;
+        });
   }
 
 }

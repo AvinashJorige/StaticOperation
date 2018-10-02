@@ -1,6 +1,7 @@
 import { Employee } from './../../shared/Employee/employee';
 import { ApiService } from './../../api.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
         selector: 'app-employees-details',
@@ -18,7 +19,8 @@ export class EmployeesDetailsComponent implements OnInit {
 
 
         // Public constructor
-        constructor(private service: ApiService) { }
+        constructor(private service: ApiService, private _Activatedroute: ActivatedRoute,
+                private _router: Router) { }
         ngOnInit() {
                 this.service.getEmpList()
                 .subscribe(data => {
@@ -35,9 +37,7 @@ export class EmployeesDetailsComponent implements OnInit {
         }
 
         editUser(user: Employee): void {
-                localStorage.removeItem('editUserId');
-                localStorage.setItem('editUserId', user.id.toString());
-                // this.router.navigate(['edit-user']);
+                this._router.navigate(['edit'], { queryParams: {id: user.id}});
         }
 
 }

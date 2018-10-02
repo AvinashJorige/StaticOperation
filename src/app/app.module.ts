@@ -18,7 +18,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 const routes: Routes = [
 { path: '', component: IndexComponent },
 { path: 'create', component: CreateComponent },
-{ path: 'edit/:id', component: EditComponent },
+{ path: 'edit', component: EditComponent },
 { path: 'index', component: IndexComponent },
 { path: 'list', component: EmployeesDetailsComponent },
 ];
