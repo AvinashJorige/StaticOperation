@@ -26,7 +26,7 @@ export class ApiService {
 
   // 	Get a single employee data
   getIdEmpList(id: string) {
-    console.log(this.API_EMP_URL + '/employee/' + id);
+    // console.log(this.API_EMP_URL + '/employee/' + id);
     return this.httpClient.get<Employee>(this.API_EMP_URL + '/employee/' + id );
   }
 

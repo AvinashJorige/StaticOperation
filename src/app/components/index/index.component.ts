@@ -10,6 +10,7 @@ import { ApiService } from '../../api.service';
 
 export class IndexComponent implements OnInit {
 
+  public page: Number = 1;
   private getBkList: Array<object> = [];
   constructor(private apiService:ApiService) { }
   ngOnInit() {
@@ -17,7 +18,7 @@ export class IndexComponent implements OnInit {
   }
 
   public getBookCategory() {
-    this.apiService.getBookCategoryList().subscribe((data: Array<object>) => {  
+    this.apiService.getBookCategoryList().subscribe((data: Array<object>) => {
      this.getBkList = data;
     });
   }
